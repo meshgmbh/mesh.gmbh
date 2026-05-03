@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mesh.gmbh — The company behind the mesh ecosystem</title>
+    <meta name="description" content="mesh GmbH is the German company stewarding the distributed mesh.eco ecosystem and economy.">
+    <style>
+        :root {
+            color-scheme: light dark;
+            --bg: #0a0a0a;
+            --fg: #f5f5f5;
+            --accent: #6cf;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body {
+            height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        main {
+            max-width: 640px;
+            text-align: center;
+        }
+        h1 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 200;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+        h1 .accent { color: var(--accent); font-weight: 400; }
+        p {
+            font-size: 1.1rem;
+            color: rgba(245, 245, 245, 0.75);
+            margin-bottom: 1rem;
+        }
+        .links {
+            margin-top: 2.5rem;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        a:hover { border-bottom-color: var(--accent); }
+        footer {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(245, 245, 245, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1><span class="accent">mesh</span>.gmbh</h1>
+        <p>mesh GmbH is the German company stewarding the distributed <strong>mesh.eco</strong> ecosystem and economy.</p>
+        <p>We build distributed infrastructure, mutual reputation systems, and the protocol layer for a self-sovereign internet.</p>
+        <div class="links">
+            <a href="https://mesh.eco">mesh.eco</a>
+            <a href="https://mesh.art">mesh.art</a>
+            <a href="https://mutual.app">mutual.app</a>
+            <a href="https://github.com/meshgmbh">GitHub</a>
+        </div>
+    </main>
+    <footer>Part of the mesh.eco distributed Ecosystem and Economy</footer>
+</body>
+</html>
