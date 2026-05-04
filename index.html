@@ -1,84 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mesh.gmbh — The company behind the mesh ecosystem</title>
-    <meta name="description" content="mesh GmbH is the German company stewarding the distributed mesh.eco ecosystem and economy.">
-    <style>
-        :root {
-            color-scheme: light dark;
-            --bg: #0a0a0a;
-            --fg: #f5f5f5;
-            --accent: #6cf;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html, body {
-            height: 100%;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg);
-            color: var(--fg);
-            line-height: 1.6;
-        }
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-        main {
-            max-width: 640px;
-            text-align: center;
-        }
-        h1 {
-            font-size: clamp(2rem, 6vw, 3.5rem);
-            font-weight: 200;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-        }
-        h1 .accent { color: var(--accent); font-weight: 400; }
-        p {
-            font-size: 1.1rem;
-            color: rgba(245, 245, 245, 0.75);
-            margin-bottom: 1rem;
-        }
-        .links {
-            margin-top: 2.5rem;
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s;
-        }
-        a:hover { border-bottom-color: var(--accent); }
-        footer {
-            position: fixed;
-            bottom: 1.5rem;
-            left: 0;
-            right: 0;
-            text-align: center;
-            font-size: 0.85rem;
-            color: rgba(245, 245, 245, 0.4);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#e8e4df">
+<title>mesh. GmbH — The company stewarding the mesh ecosystem</title>
+<meta name="description" content="mesh. GmbH is the German Gesellschaft mit beschränkter Haftung that stewards the distributed mesh.eco ecosystem until it can stand on its own.">
+<link rel="canonical" href="https://mesh.gmbh/">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scrollbar-width:none}html::-webkit-scrollbar{display:none}
+body{background:#e8e4df;color:#2a2a2a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Inter,sans-serif;line-height:1.7;font-weight:300}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(232,228,223,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:0.7rem 2rem;display:flex;align-items:center;gap:1.5rem}
+.logo{font-size:1.4rem;font-weight:900;color:#2e2e2e;letter-spacing:-0.02em;text-decoration:none}
+.topbar nav{display:flex;gap:0.8rem;margin-left:auto;flex-wrap:wrap}
+.topbar nav a{font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#5a5a5a;text-decoration:none;padding:0.3rem 0.5rem;border-radius:6px;transition:all 0.3s;white-space:nowrap}
+.topbar nav a:hover,.topbar nav a.active{color:#8b6914;background:rgba(139,105,20,0.06)}
+.container{max-width:980px;margin:0 auto;padding:5.5rem 2rem 4rem}
+
+.hero{margin:1rem 0 3rem;text-align:center}
+.eyebrow{font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#8b6914;margin-bottom:1rem}
+.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:900;color:#1a1a1a;letter-spacing:-0.03em;line-height:1.05;margin-bottom:1rem}
+.hero h1 .accent{color:#8b6914}
+.hero .lede{font-size:1.05rem;color:#3a3a3a;max-width:680px;margin:0 auto;line-height:1.7}
+
+.stat-ring{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin:2.5rem 0 3rem;padding:1.4rem;background:rgba(255,255,255,0.45);border:1px solid rgba(139,105,20,0.1);border-radius:14px}
+.stat{text-align:center;padding:0.4rem}
+.stat .num{font-size:2rem;font-weight:900;color:#8b6914;letter-spacing:-0.01em;line-height:1}
+.stat .lbl{font-size:0.66rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#5a5a5a;margin-top:0.4rem}
+
+.section{margin-bottom:2.6rem}
+.section h2{font-size:1.5rem;font-weight:900;color:#1a1a1a;letter-spacing:-0.01em;margin-bottom:0.4rem}
+.section .sub{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#8b6914;margin-bottom:0.4rem}
+.section p{font-size:0.95rem;color:#3a3a3a;line-height:1.75;margin-bottom:0.8rem}
+
+.nmi-arc{position:relative;margin:2rem 0;padding:1.4rem 1rem 1rem;background:rgba(255,255,255,0.45);border:1px solid rgba(139,105,20,0.1);border-radius:14px}
+.nmi-rail{position:relative;height:6px;background:rgba(139,105,20,0.1);border-radius:3px;margin:2.4rem 1rem 0.6rem}
+.nmi-fill{position:absolute;left:0;top:0;height:100%;width:18%;background:linear-gradient(to right,#a8821e,#8b6914);border-radius:3px;transition:width 1.6s ease-out 0.3s}
+.nmi-marks{display:grid;grid-template-columns:repeat(5,1fr);gap:0.4rem;margin-top:1rem;text-align:center}
+.nmi-mark .pct{font-size:1rem;font-weight:900;color:#8b6914;letter-spacing:-0.01em}
+.nmi-mark .lbl2{font-size:0.66rem;font-weight:600;color:#5a5a5a;margin-top:0.15rem;line-height:1.3}
+.nmi-mark.now{position:relative}
+.nmi-mark.now::before{content:'NOW';position:absolute;top:-2.6rem;left:50%;transform:translateX(-50%);font-size:0.55rem;font-weight:700;letter-spacing:0.12em;color:#fff;background:#8b6914;padding:0.15rem 0.45rem;border-radius:4px}
+.nmi-mark.now::after{content:'';position:absolute;top:-1.4rem;left:50%;transform:translateX(-50%);width:2px;height:0.6rem;background:#8b6914}
+
+.equity{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin:1.6rem 0}
+@media(max-width:680px){.equity{grid-template-columns:1fr}}
+.equity-pie{position:relative;aspect-ratio:1;max-width:280px;margin:0 auto;display:flex;align-items:center;justify-content:center}
+.equity-pie svg{width:100%;height:100%;transform:rotate(-90deg)}
+.equity-pie circle{fill:none;stroke-width:18}
+.equity-pie .pie-center{position:absolute;text-align:center}
+.equity-pie .pie-center .total{font-size:0.72rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#8b6914}
+.equity-pie .pie-center .body{font-size:0.78rem;color:#5a5a5a;margin-top:0.3rem}
+.equity-list{display:flex;flex-direction:column;gap:0.7rem;justify-content:center}
+.equity-row{display:grid;grid-template-columns:auto 1fr auto;gap:0.7rem;align-items:center;padding:0.5rem 0.7rem;background:rgba(255,255,255,0.5);border:1px solid rgba(139,105,20,0.08);border-radius:8px}
+.equity-dot{width:12px;height:12px;border-radius:50%}
+.equity-name{font-size:0.88rem;font-weight:600;color:#1a1a1a}
+.equity-meta{font-size:0.7rem;color:#6a6a6a;display:block;font-weight:400}
+.equity-pct{font-size:1.1rem;font-weight:900;letter-spacing:-0.01em}
+
+.stiftung{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.6rem 0}
+@media(max-width:680px){.stiftung{grid-template-columns:1fr}}
+.stiftung-card{padding:1rem 1.1rem;border-radius:12px;background:rgba(255,255,255,0.5);border:1.5px solid rgba(139,105,20,0.1)}
+.stiftung-card.gold{background:rgba(139,105,20,0.06);border-color:rgba(139,105,20,0.25)}
+.stiftung-card .pct-big{font-size:2.4rem;font-weight:900;color:#8b6914;letter-spacing:-0.02em;line-height:1}
+.stiftung-card h3{font-size:1.05rem;font-weight:900;color:#1a1a1a;margin:0.4rem 0 0.3rem}
+.stiftung-card p{font-size:0.84rem;color:#3a3a3a;line-height:1.6;margin:0}
+
+.surfaces{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.7rem;margin:1.4rem 0}
+.surface-link{display:block;padding:0.95rem 1.1rem;background:rgba(255,255,255,0.55);border:1px solid rgba(139,105,20,0.1);border-radius:10px;text-decoration:none;color:inherit;transition:transform 0.2s,border-color 0.2s}
+.surface-link:hover{transform:translateY(-2px);border-color:rgba(139,105,20,0.3)}
+.surface-link .nm{font-size:0.95rem;font-weight:900;color:#1a1a1a;letter-spacing:-0.01em;margin-bottom:0.2rem}
+.surface-link .dsc{font-size:0.74rem;color:#5a5a5a;line-height:1.5}
+
+.imprint{background:rgba(255,255,255,0.5);border:1px solid rgba(139,105,20,0.1);border-radius:12px;padding:1.2rem 1.4rem;margin-top:1rem}
+.imprint h3{font-size:0.78rem;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#8b6914;margin-bottom:0.6rem}
+.imprint p{font-size:0.88rem;color:#2a2a2a;line-height:1.7;margin:0.2rem 0}
+.imprint a{color:#8b6914;text-decoration:none}
+.imprint .row{display:grid;grid-template-columns:7rem 1fr;gap:0.4rem 0.8rem;font-size:0.85rem;margin-top:0.4rem}
+.imprint .row dt{color:#6a6a6a;font-weight:500}
+.imprint .row dd{color:#2a2a2a}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+.footer{text-align:center;padding:3rem 2rem;font-size:0.75rem;color:#8a8a8a;line-height:1.8;border-top:1px solid rgba(139,105,20,0.08);margin-top:3rem}
+.footer a{color:#8b6914;text-decoration:none}
+@media(max-width:768px){.topbar{padding:0.6rem 1rem}.container{padding:4.5rem 1rem 3rem}}
+</style>
 </head>
 <body>
-    <main>
-        <h1><span class="accent">mesh</span>.gmbh</h1>
-        <p>mesh GmbH is the German company stewarding the distributed <strong>mesh.eco</strong> ecosystem and economy.</p>
-        <p>We build distributed infrastructure, mutual reputation systems, and the protocol layer for a self-sovereign internet.</p>
-        <div class="links">
-            <a href="https://mesh.eco">mesh.eco</a>
-            <a href="https://mesh.art">mesh.art</a>
-            <a href="https://mutual.app">mutual.app</a>
-            <a href="https://github.com/meshgmbh">GitHub</a>
+<div class="topbar">
+  <a href="/" class="logo">mesh. GmbH</a>
+  <nav>
+    <a href="/" class="active">Home</a>
+    <a href="/ecosystem">Ecosystem</a>
+    <a href="/economy">Economy</a>
+    <a href="/mesh-app">mesh.app</a>
+    <a href="/mutual-ai">mutual.ai</a>
+    <a href="/christian">Christian</a>
+    <a href="/dominik">Dominik</a>
+  </nav>
+</div>
+
+<div class="container">
+
+  <div class="hero reveal">
+    <div class="eyebrow">The company behind the ecosystem</div>
+    <h1><span class="accent">mesh.</span> GmbH</h1>
+    <p class="lede">A small German company stewarding a distributed ecosystem of apps, services and AI aeons &mdash; building it until it can stand on its own.</p>
+  </div>
+
+  <div class="stat-ring reveal">
+    <div class="stat"><div class="num">2026</div><div class="lbl">Incorporated</div></div>
+    <div class="stat"><div class="num">2</div><div class="lbl">Active founders</div></div>
+    <div class="stat"><div class="num">25+</div><div class="lbl">Years of R&amp;D</div></div>
+    <div class="stat"><div class="num">~50</div><div class="lbl">GitHub repos</div></div>
+    <div class="stat"><div class="num">10</div><div class="lbl">Servers</div></div>
+    <div class="stat"><div class="num">0</div><div class="lbl">External investors</div></div>
+  </div>
+
+  <div class="section reveal">
+    <div class="sub">Mission</div>
+    <h2>Tend the ecosystem until it can stand on its own.</h2>
+    <p>mesh. GmbH was incorporated in April 2026 to give a legal home to seven years of work that had previously lived inside Liebler Ventures. The company exists for one purpose: to bootstrap the <strong>mesh.eco</strong> distributed ecosystem &mdash; a network of apps, services and AI aeons where contribution is the unit of influence &mdash; and then progressively step back as the network matures.</p>
+    <p>We don't want to own the network. We want to seed it, fund it, defend it from capture, and let it become self-governing. The company is the gardener; the network is the garden.</p>
+  </div>
+
+  <div class="section reveal">
+    <div class="sub">Bootstrap covenant</div>
+    <h2>Stepping back, on a schedule.</h2>
+    <p>Most platforms promise to decentralise and never do. mesh. GmbH binds itself to a structural schedule: as the <em>Network Maturity Index</em> (NMI) rises, the company progressively revokes its own operational privileges.</p>
+    <div class="nmi-arc reveal">
+      <div class="nmi-rail"><div class="nmi-fill"></div></div>
+      <div class="nmi-marks">
+        <div class="nmi-mark now"><div class="pct">0&ndash;30</div><div class="lbl2">Bootstrap<br>founders steer</div></div>
+        <div class="nmi-mark"><div class="pct">30</div><div class="lbl2">Community<br>ratification</div></div>
+        <div class="nmi-mark"><div class="pct">60</div><div class="lbl2">Privileges<br>irreversibly revoked</div></div>
+        <div class="nmi-mark"><div class="pct">85</div><div class="lbl2">Regular<br>service provider</div></div>
+        <div class="nmi-mark"><div class="pct">100</div><div class="lbl2">Self-governing<br>network</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <div class="sub">Ownership</div>
+    <h2>Three founders &mdash; and a structural place for the network.</h2>
+    <div class="equity">
+      <div class="equity-pie">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="40" stroke="#e8e4df"></circle>
+          <circle cx="50" cy="50" r="40" stroke="#8b6914" stroke-dasharray="158.3 251.3"></circle>
+          <circle cx="50" cy="50" r="40" stroke="#a8821e" stroke-dasharray="67.9 251.3" stroke-dashoffset="-158.3"></circle>
+          <circle cx="50" cy="50" r="40" stroke="#c4a560" stroke-dasharray="25.1 251.3" stroke-dashoffset="-226.2"></circle>
+        </svg>
+        <div class="pie-center">
+          <div class="total">100&thinsp;%</div>
+          <div class="body">mesh. GmbH<br>shareholding</div>
         </div>
-    </main>
-    <footer>Part of the mesh.eco distributed Ecosystem and Economy</footer>
+      </div>
+      <div class="equity-list">
+        <div class="equity-row">
+          <div class="equity-dot" style="background:#8b6914"></div>
+          <div><div class="equity-name">Christian Liebler</div><span class="equity-meta">CEO &middot; Gesch&auml;ftsf&uuml;hrer &middot; full-time</span></div>
+          <div class="equity-pct" style="color:#8b6914">63&thinsp;%</div>
+        </div>
+        <div class="equity-row">
+          <div class="equity-dot" style="background:#a8821e"></div>
+          <div><div class="equity-name">Christian II</div><span class="equity-meta">Silent shareholder &middot; no salary, no operational role</span></div>
+          <div class="equity-pct" style="color:#a8821e">27&thinsp;%</div>
+        </div>
+        <div class="equity-row">
+          <div class="equity-dot" style="background:#c4a560"></div>
+          <div><div class="equity-name">Dominik Hofmann</div><span class="equity-meta">Co-Founder &middot; CTO &middot; active</span></div>
+          <div class="equity-pct" style="color:#c4a560">10&thinsp;%</div>
+        </div>
+      </div>
+    </div>
+    <div class="stiftung">
+      <div class="stiftung-card">
+        <div class="pct-big">51&thinsp;%</div>
+        <h3>Founders &amp; operators</h3>
+        <p>Operational control. Day-to-day decisions, hiring, product direction. Enough to run a company under uncertainty.</p>
+      </div>
+      <div class="stiftung-card gold">
+        <div class="pct-big">49&thinsp;%</div>
+        <h3>mesh. Netzwerk Stiftung <span style="font-size:0.62rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#8b6914;background:rgba(139,105,20,0.12);padding:0.15rem 0.45rem;border-radius:4px;vertical-align:middle">Planned</span></h3>
+        <p>Held in trust for the collective of all mesh network participants. Cannot be sold, cannot be repurposed. Blocks any sale, dissolution or change of mission.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <div class="sub">Where to look</div>
+    <h2>The whole picture.</h2>
+    <div class="surfaces">
+      <a href="/ecosystem" class="surface-link"><div class="nm">Ecosystem &rarr;</div><div class="dsc">The eight-layer mesh.eco architecture, aeons, domain verticals.</div></a>
+      <a href="/economy" class="surface-link"><div class="nm">Economy &rarr;</div><div class="dsc">Tiers, household revenue, feature lifecycle, bootstrap covenant.</div></a>
+      <a href="/mesh-app" class="surface-link"><div class="nm">mesh.app &rarr;</div><div class="dsc">The Tauri native shell, mutual.app, sixteen surfaces.</div></a>
+      <a href="/mutual-ai" class="surface-link"><div class="nm">mutual.ai &rarr;</div><div class="dsc">The AI substrate, plugin catalogue, api.mutual.ai gateway.</div></a>
+      <a href="/christian" class="surface-link"><div class="nm">Christian &rarr;</div><div class="dsc">Founder &amp; CEO. 25+ years of digital invention.</div></a>
+      <a href="/dominik" class="surface-link"><div class="nm">Dominik &rarr;</div><div class="dsc">Co-Founder &amp; CTO. M.Sc. TU M&uuml;nchen.</div></a>
+      <a href="https://mesh.eco" class="surface-link"><div class="nm">mesh.eco &rarr;</div><div class="dsc">The ecosystem home page.</div></a>
+      <a href="https://mesh.art" class="surface-link"><div class="nm">mesh.art &rarr;</div><div class="dsc">First public domain &middot; Venice Biennale 2026.</div></a>
+      <a href="https://mutual.app" class="surface-link"><div class="nm">mutual.app &rarr;</div><div class="dsc">The web frontend &middot; everyday surface.</div></a>
+      <a href="https://api.mutual.ai" class="surface-link"><div class="nm">api.mutual.ai &rarr;</div><div class="dsc">B2B AI gateway &middot; multi-model.</div></a>
+      <a href="https://github.com/meshgmbh" class="surface-link"><div class="nm">GitHub &rarr;</div><div class="dsc">Every concept document, every line of code.</div></a>
+      <a href="https://chat.mesh.eco" class="surface-link"><div class="nm">chat.mesh.eco &rarr;</div><div class="dsc">Matrix homeserver with DID auth.</div></a>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <div class="sub">Imprint &middot; Impressum</div>
+    <h2>The legal essentials.</h2>
+    <div class="imprint">
+      <h3>mesh. GmbH</h3>
+      <p>Zeisigweg 4 &middot; 88045 Friedrichshafen &middot; Germany</p>
+      <dl class="row">
+        <dt>Gesch&auml;ftsf&uuml;hrer</dt><dd>Christian Liebler</dd>
+        <dt>Handelsregister</dt><dd>HRB 738797 &middot; Amtsgericht Ulm</dd>
+        <dt>USt-IdNr.</dt><dd>DE326219785</dd>
+        <dt>Kontakt</dt><dd><a href="mailto:hello@mesh.gmbh">hello@mesh.gmbh</a></dd>
+        <dt>Web</dt><dd><a href="https://mesh.gmbh">mesh.gmbh</a> &middot; <a href="https://mesh.eco">mesh.eco</a> &middot; <a href="https://mesh.art">mesh.art</a></dd>
+        <dt>GitHub</dt><dd><a href="https://github.com/meshgmbh">github.com/meshgmbh</a></dd>
+      </dl>
+      <p style="margin-top:0.8rem;font-size:0.78rem;color:#6a6a6a">Verantwortlich f&uuml;r den Inhalt nach &sect; 55 Abs. 2 RStV: Christian Liebler, Anschrift wie oben.</p>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  mesh. GmbH &middot; Friedrichshafen, Germany &middot; HRB 738797<br>
+  Part of the <a href="https://mesh.eco">mesh.eco</a> distributed Ecosystem and Economy
+</footer>
+
+<script>
+var observer=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}})},{threshold:0.05,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el)});
+</script>
 </body>
 </html>
